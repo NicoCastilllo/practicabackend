@@ -1,0 +1,15 @@
+{{> nav}}
+<h1>Este es el catalogo</h1>
+<form action="/productos" method="post">
+    <input placeholder="Ingrese nombre" name="name">
+    <input type="number" placeholder="Ingrese precio" name="price">
+    <input type="number" placeholder="Ingrese stock" name="stock">
+    <button type="submit">Crear producto</button>
+</form>
+
+{{#each products}}
+<h6>{{name}}</h6>
+<h6>{{price}}</h6>
+<h6>{{stock}}</h6>
+
+{{/each}}
