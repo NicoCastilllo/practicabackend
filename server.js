@@ -3,12 +3,13 @@ import morgan from 'morgan'
 import handlebars  from "express-handlebars"
 import path from 'path'
 import routesProducts from './src/routes/routesProducts.js'
-
+import methodOverride from 'method-override'
 
 const app = express()
 
 
 const __dirname = path.resolve();
+app.use(methodOverride('_method'))
 app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: true })) 
