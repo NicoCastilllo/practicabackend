@@ -2,8 +2,12 @@
 
  ]
 
+ export const viewInicio = (req,res) =>{
+   res.status(200).render('inicio',{products:products})
+ }
+
   export const view = async (req,res)=>{
-    res.status(200).render('productos',{products:products})
+    res.status(200).render('productos',{productos:products})
   }
 
   export const create = async (req,res)=>{

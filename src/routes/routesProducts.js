@@ -1,6 +1,7 @@
 import * as controllerProducts from '../controllers/controllerProducts.js'
 
 const routesProducts = (app) => {
+    app.get('/inicio',controllerProducts.viewInicio)
     app.get('/productos',controllerProducts.view)
     app.post('/productos',controllerProducts.create)
     app.delete('/productos',controllerProducts.del)

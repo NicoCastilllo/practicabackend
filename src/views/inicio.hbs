@@ -1,3 +1,16 @@
-{{> nav }}
-<h1>este es el inicio</h1>
+{{> nav}}
 
+
+<div class="row">
+    {{#each products}}
+
+    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    <p class="card-text">El precio del producto es de {{price}} y aun hay {{stock}} a la venta.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+    {{/each}}
+</div>
