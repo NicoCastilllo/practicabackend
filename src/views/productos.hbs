@@ -1,9 +1,9 @@
 {{> nav}}
 <h1>Este es el catalogo</h1>
 <form action="/productos" method="post">
-    <input placeholder="Ingrese nombre" name="name">
-    <input type="number" placeholder="Ingrese precio" name="price">
-    <input type="number" placeholder="Ingrese stock" name="stock">
+    <input placeholder="Ingrese nombre" name="name" required>
+    <input type="number" placeholder="Ingrese precio" name="price" required>
+    <input type="number" placeholder="Ingrese stock" name="stock" required>
     <button type="submit">Crear producto</button>
     
 </form>

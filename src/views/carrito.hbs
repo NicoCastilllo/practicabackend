@@ -1,0 +1,20 @@
+{{> nav}}
+
+<div class="row">
+
+{{#each cart}}
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">El precio del producto es de {{price}} y aun hay {{stock}} a la venta.</p>
+            <form action="/carrito?_method=DELETE" method="post">
+             <input type="hidden" name="id" value={{id}}>
+                <button type="submit">Borrar</button>
+            </form>
+        </div>
+    </div>
+{{/each}}
+
+</div>

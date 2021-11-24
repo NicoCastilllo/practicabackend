@@ -4,13 +4,20 @@
 <div class="row">
     {{#each products}}
 
-    <div class="card" style="width: 18rem;">
+ <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
     <p class="card-text">El precio del producto es de {{price}} y aun hay {{stock}} a la venta.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <form action="/carrito" method="post">
+      <input type="hidden" name="name" value={{name}}>
+      <input type="hidden" name="id" value={{id}}>
+      <input type="hidden" name="price" value={{price}}>
+      <input type="hidden" name="stock" value={{stock}}>
+      <button type="submit">Añadir al carrito</button>
+    </form>
+    
   </div>
-</div>
+ </div>
     {{/each}}
 </div>

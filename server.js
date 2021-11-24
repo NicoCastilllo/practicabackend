@@ -4,6 +4,7 @@ import handlebars  from "express-handlebars"
 import path from 'path'
 import routesProducts from './src/routes/routesProducts.js'
 import methodOverride from 'method-override'
+import routesCart from './src/routes/routesCart.js'
 
 const app = express()
 
@@ -25,6 +26,7 @@ app.set('views', path.join(__dirname, 'src/views'))
 app.set('view engine', 'hbs');
 // servidor
 routesProducts(app)
+routesCart(app)
 const port = process.env.PORT || '3000'
 app.listen(port, () => {
     console.log(`El servidor esta corriendo en http://localhost:${port}`)
