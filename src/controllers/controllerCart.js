@@ -13,6 +13,7 @@ export const createCart = (req,res) =>{
 }
 
 export const delCart = (req,res) => {
+    console.log(req.body)
     cart = cart.filter(element => element.id != req.body.id)
     res.status(200).redirect('/carrito')
 }
