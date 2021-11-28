@@ -5,15 +5,16 @@
     {{#each products}}
 
  <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src="./img/products/{{img}}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
     <p class="card-text">El precio del producto es de {{price}} y aun hay {{stock}} a la venta.</p>
     <form action="/carrito" method="post">
+      <input type="hidden" name="img" value={{img}}>
       <input type="hidden" name="name" value={{name}}>
       <input type="hidden" name="id" value={{id}}>
       <input type="hidden" name="price" value={{price}}>
-      <input type="number" name="cant" max={{stock}}>
+      <input type="number" type="number" name="stock" min=1 max={{stock}}>
       <button type="submit">Añadir al carrito</button>
     </form>
 

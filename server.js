@@ -5,6 +5,7 @@ import path from 'path'
 import routesProducts from './src/routes/routesProducts.js'
 import methodOverride from 'method-override'
 import routesCart from './src/routes/routesCart.js'
+import fileUpload from 'express-fileupload'
 
 const app = express()
 
@@ -24,6 +25,15 @@ app.engine("hbs", handlebars({
 }));
 app.set('views', path.join(__dirname, 'src/views'))
 app.set('view engine', 'hbs');
+app.use(
+  fileUpload({
+    limits: { fileSize: 50 * 1024 * 1024 },
+    useTempFiles: true,
+   // dir for windows PC
+    tempFileDir: path.join(__dirname, './tmp'),
+  }),
+);
+
 // servidor
 routesProducts(app)
 routesCart(app)

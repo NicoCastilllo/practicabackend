@@ -1,27 +1,30 @@
 {{> nav}}
 <h1>Este es el catalogo</h1>
-<form action="/productos" method="post">
+<form action="/productos" method="post" enctype="multipart/form-data">
     <input placeholder="Ingrese nombre" name="name" required>
-    <input type="number" placeholder="Ingrese precio" name="price" required>
-    <input type="number" placeholder="Ingrese stock" name="stock" required>
+    <input type="number" placeholder="Ingrese precio" name="price" min="1" required>
+    <input type="number" placeholder="Ingrese stock" name="stock" min="1" required>
+    <input type="file" name="img" accept="image/x-png,image/gif,image/jpeg" required>
     <button type="submit">Crear producto</button>
     
 </form>
 <div class="row">
 {{#each productos}}
     <div class="card col-2 m-5">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" src="./img/products/{{img}}" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{name}}</h5>
             <p class="card-text">El precio es de {{price}} con un stock de {{stock}}</p>
-            <form action="/productos?_method=PUT" method="post">
+            <form action="/productos?_method=PUT" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value={{id}}>
                 <h6>Nombre:</h6>
-                <input name="name" placeholder={{name}}>
+                <input name="name" type="text" placeholder={{name}}>
                 <h6>Precio:</h6>
-                <input name="price" placeholder={{price}}>
+                <input name="price" type="number" placeholder={{price}}>
                 <h6>Stock:</h6>
-                <input name="stock" placeholder={{stock}}>
+                <input name="stock" type="number" placeholder={{stock}}>
+                <h6>Imagen:</h6>
+                <input type="file" name="img" accept="image/x-png,image/gif,image/jpeg">
                 <button type="submit">Actualizar</button>
             </form>
             <form action="/productos?_method=DELETE" method="post">
